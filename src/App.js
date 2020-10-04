@@ -1,25 +1,60 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from './Components/Header/Header';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Components/Home/Home';
+import Admin from './Components/Admin/Admin';
+import Reg from './Components/Reg/Reg';
+import UserEvents from './Components/UserEvents/UserEvents';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Login from './Components/Login/Login';
+import { Avatar } from '@material-ui/core';
+import AdminControl from './Components/AdminControl/AdminControl';
+import AdminAddEvent from './Components/AdminAddEvent/AdminAddEvent';
+
+export const UserContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
+        <Header></Header>
+
+        <div className="container">
+          <Switch>
+            <Route path="/admin">
+              <Admin></Admin>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <PrivateRoute path="/reg/:eventLink">
+              <Reg></Reg>
+            </PrivateRoute>
+            <PrivateRoute path="/reg">
+              <Reg></Reg>
+            </PrivateRoute>
+            <PrivateRoute path="/userEvents">
+              <UserEvents></UserEvents>
+            </PrivateRoute>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/adminControl">
+              <AdminControl></AdminControl>
+            </Route>
+            <Route path="/adminAddEvent">
+              <AdminAddEvent></AdminAddEvent>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </UserContext.Provider>
   );
 }
 
