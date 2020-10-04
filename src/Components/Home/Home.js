@@ -16,7 +16,7 @@ const Home = () => {
     return (
         <div className="row">
             {
-                events.map(event => <HomeEvents  event = {event}>
+                events.map(event => <HomeEvents  event = {event} key={event._id}>
                 </HomeEvents> )
             }
         </div>

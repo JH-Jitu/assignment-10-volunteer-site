@@ -9,7 +9,6 @@ import Reg from './Components/Reg/Reg';
 import UserEvents from './Components/UserEvents/UserEvents';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Login from './Components/Login/Login';
-import { Avatar } from '@material-ui/core';
 import AdminControl from './Components/AdminControl/AdminControl';
 import AdminAddEvent from './Components/AdminAddEvent/AdminAddEvent';
 
@@ -22,7 +21,7 @@ function App() {
       <Router>
         <Header></Header>
 
-        <div className="container">
+        <div className="container bg-light mt-4 p-4">
           <Switch>
             <Route path="/admin">
               <Admin></Admin>

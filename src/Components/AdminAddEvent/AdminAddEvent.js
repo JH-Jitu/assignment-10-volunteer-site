@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import Admin from '../Admin/Admin';
 
 const AdminAddEvent = () => {
     const { register, handleSubmit, errors } = useForm();
 
+    const history = useHistory();
     const onSubmitEvent = (data) => {
         const newEventStart = data
         fetch("http://localhost:4200/addEvent", {
@@ -17,9 +19,10 @@ const AdminAddEvent = () => {
             .then(res => res.json())
             .then(data => {
                 if(data){
-                    alert("Your Event has been added successfully!")
+                    data.redirect("/")
                 }
             })
+            history.push("/home");
     }
 
     return (
@@ -33,17 +36,17 @@ const AdminAddEvent = () => {
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">Event Name</span>
                     </div>
-                    <input name="eventName" ref={register({ required: true })} />
+                    <input className="w-100 mx-auto" name="eventName" placeholder="Write a event name that you want to add" ref={register({ required: true })} />
                     {errors.eventName && <span className="error">Event Name is required</span>}
                 </div>
                 <div className="input-group mb-3">
                     <div className="input-group-prepend">
                         <span className="input-group-text" id="basic-addon1">Event Banner</span>
                     </div>
-                    <input name="eventBanner" ref={register({ required: true })} />
+                    <input className="w-100 mx-auto" name="eventBanner" placeholder="Put a image Link or url for showing photo" ref={register({ required: true })} />
                     {errors.eventBanner && <span className="error">Banner link is required</span>}
                 </div>
-                <button className="btn btn-dark" type="submit">Add Product</button>
+                <button className="btn btn-dark" type="submit"> <img style={{width:"30px"}} src="https://raw.githubusercontent.com/ProgrammingHero1/volunteer-network/main/logos/cloud-upload-outline%201.png" alt=""/> Add Product</button>
             </form>
             </div>
         </div>
