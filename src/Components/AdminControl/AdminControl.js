@@ -7,7 +7,7 @@ const AdminControl = () => {
 
     const [redirect, setRedirect] = useState();
     useEffect(() => {
-        fetch("http://localhost:4200/userEventsAll")
+        fetch("https://protected-ridge-51835.herokuapp.com/userEventsAll")
             .then(res => res.json())
             .then(data => {
                 setUserEvents(data)
@@ -21,7 +21,7 @@ const AdminControl = () => {
 
     function handleDeleteEvent(id) {
         console.log("clicked")
-        fetch(`http://localhost:4200/delete/${id}`, {
+        fetch(`https://protected-ridge-51835.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

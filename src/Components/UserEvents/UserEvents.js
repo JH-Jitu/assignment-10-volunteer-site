@@ -7,20 +7,11 @@ const UserEvents = () => {
     const [userEvents, setUserEvents] = useState([]);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-    // Database
     const [redirect, setRedirect] = useState();
-    // useEffect(() => {
-    //     fetch("http://localhost:4200/userEvents")
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setUserEvents(data)
-    //             // setRedirect(false); => have to cancel it
-    //         })
-    // }, [redirect]);
 
     // Individual data for every user
     useEffect(() => {
-        fetch(`http://localhost:4200/userEvents?email=${loggedInUser.email}`, {
+        fetch(`https://protected-ridge-51835.herokuapp.com/userEvents?email=${loggedInUser.email}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,7 +33,7 @@ const UserEvents = () => {
 
     function handleDeleteEvent(id) {
         console.log("clicked")
-        fetch(`http://localhost:4200/delete/${id}`, {
+        fetch(`https://protected-ridge-51835.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

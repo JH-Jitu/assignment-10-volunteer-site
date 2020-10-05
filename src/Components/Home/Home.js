@@ -3,13 +3,17 @@ import HomeEvents from '../HomeEvents/HomeEvents';
 
 const Home = () => {
     const [events, setEvents] = useState([]);
+    const [redirect, setRedirect] = useState();
     
     // Database
     useEffect(() =>{
-        fetch("http://localhost:4200/events")
+        fetch("https://protected-ridge-51835.herokuapp.com/events")
         .then(res => res.json())
-        .then(data => setEvents(data))
-    }, []);
+        .then(data => {
+            setEvents(data)
+            setRedirect(true)
+        })
+    }, [redirect]);
 
     
 

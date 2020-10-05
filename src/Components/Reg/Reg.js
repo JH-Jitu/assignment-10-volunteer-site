@@ -24,7 +24,7 @@ const Reg = () => {
     const onSubmit = (data, eventLink) => {
         const userEventDetails = {...loggedInUser, data};
         // console.log(userEventDetails)
-        fetch("http://localhost:4200/addUserEvent", {
+        fetch("https://protected-ridge-51835.herokuapp.com/addUserEvent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

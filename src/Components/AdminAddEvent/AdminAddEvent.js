@@ -9,7 +9,7 @@ const AdminAddEvent = () => {
     const history = useHistory();
     const onSubmitEvent = (data) => {
         const newEventStart = data
-        fetch("http://localhost:4200/addEvent", {
+        fetch("https://protected-ridge-51835.herokuapp.com/addEvent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -17,13 +17,13 @@ const AdminAddEvent = () => {
             body: JSON.stringify(newEventStart)
         })
             .then(res => res.json())
-            .then(data => {
-                if(data){
-                    data.redirect("/")
+            .then(result => {
+                if(result){
+                    result.redirect("/")
                 }
             })
-            history.push("/home");
-    }
+            history.push("/");
+    };
 
     return (
         <div className="row">
