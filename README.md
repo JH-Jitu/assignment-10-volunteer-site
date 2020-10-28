@@ -11,11 +11,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This is an event management type website. It’s developed by React, MongoDB, Firebase, JS, ES6, React-Router, React-Hooks, React-custom-hook, Html, CSS and Material UI.
 ### Link: https://volunteer-site-558da.web.app
 ### Features
-•	Different Link for user and admin Panel
-•	Adding Event Option for an admin
-•	User information are saved in both user and admin control panel.
-•	Any User Event participation can be removed by admin
-•	Fully Responsive with sign-in/up feature
+-	Different Link for user and admin Panel
+-	Adding Event Option for an admin
+-	User information are saved in both user and admin control panel.
+-	Any User Event participation can be removed by admin
+-	Fully Responsive with sign-in/up feature
+
 <br />
 <br />
 <br />
