@@ -9,7 +9,7 @@ const AdminAddEvent = () => {
     const history = useHistory();
     const onSubmitEvent = (data) => {
         const newEventStart = data
-        fetch("https://protected-ridge-51835.herokuapp.com/addEvent", {
+        fetch("https://lit-ocean-61516.herokuapp.com/addEvent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

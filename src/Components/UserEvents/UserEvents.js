@@ -11,7 +11,7 @@ const UserEvents = () => {
 
     // Individual data for every user
     useEffect(() => {
-        fetch(`https://protected-ridge-51835.herokuapp.com/userEvents?email=${loggedInUser.email}`, {
+        fetch(`https://lit-ocean-61516.herokuapp.com/userEvents?email=${loggedInUser.email}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const UserEvents = () => {
 
     function handleDeleteEvent(id) {
         console.log("clicked")
-        fetch(`https://protected-ridge-51835.herokuapp.com/delete/${id}`, {
+        fetch(`https://lit-ocean-61516.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
